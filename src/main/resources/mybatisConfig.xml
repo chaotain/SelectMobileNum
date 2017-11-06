@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+       <!-- lazyLoadingEnabled:懒加载默认false，aggressiveLazyLoading：积极加载，默认true -->
+      <setting name="lazyLoadingEnabled" value="true"/>
+      <setting name="aggressiveLazyLoading" value="false"/>
+      <!--启用二级缓存  -->
+      <setting name="cacheEnabled" value="true"/>
+    </settings>
+    
+	<typeAliases>
+		<package name="com.offcn.po"/>
+	</typeAliases>
+
+</configuration>

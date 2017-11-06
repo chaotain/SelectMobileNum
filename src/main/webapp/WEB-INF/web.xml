@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  
+  <welcome-file-list>
+  	<welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>springmvc</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+ <!-- 添加<init-param>标签可以改变spring配置文件springmv-servlet.xml文件的路径和名字，
+ 	不添加这个标签该文件只能放在web-inf文件夹下面，而且名字只能是<servlet-name>中的名字+“-”+servlet
+  -->
+ 	<init-param>
+ 		<param-name>contextConfigLocation</param-name>
+ 		<param-value>classpath:springmvc.xml</param-value>
+ 	</init-param>
+ 	<!--文件下载  -->
+ 	<multipart-config>
+ 		<file-size-threshold>0</file-size-threshold>
+ 		<max-file-size>500000</max-file-size>
+ 	</multipart-config>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>springmvc</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <!-- classpath:代表的是classes包下的所有文件，classpath*:当前项目的所有文件 -->
+    <param-value>classpath*:beans.xml</param-value>
+  </context-param>
+  
+</web-app>
