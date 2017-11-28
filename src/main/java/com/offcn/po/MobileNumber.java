@@ -2,7 +2,7 @@ package com.offcn.po;
 
 public class MobileNumber {
 	private int ID;
-	private int MobileNumber;
+	private String MobileNumber;
 	private String MobileAreal;
 	private String MobileType;
 	private int AreaCode;
@@ -12,12 +12,6 @@ public class MobileNumber {
 	}
 	public void setID(int iD) {
 		ID = iD;
-	}
-	public int getMobileNumber() {
-		return MobileNumber;
-	}
-	public void setMobileNumber(int mobileNumber) {
-		MobileNumber = mobileNumber;
 	}
 	public String getMobileAreal() {
 		return MobileAreal;
@@ -43,6 +37,13 @@ public class MobileNumber {
 	public void setPostCode(int postCode) {
 		PostCode = postCode;
 	}
+	public String getMobileNumber() {
+		return MobileNumber;
+	}
+	public void setMobileNumber(String mobileNumber) {
+		MobileNumber = mobileNumber;
+	}
+	
 	
 
 }

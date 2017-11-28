@@ -7,7 +7,7 @@
 	<result column="MobileArea" property="MobileAreal"/>
 	<result column="MobileType" property="MobileType"/>
 </resultMap>
-<select id="getnum" parameterType="int" resultMap="rm1">
+<select id="getnum" parameterType="java.lang.String" resultMap="rm1">
 	SELECT MobileArea,MobileType FROM mobilenumber WHERE MobileNumber=#{mobilenumber}
 </select>
   <!-- <resultMap id="BaseResultMap" type="com.offcn.po.CtcKey">

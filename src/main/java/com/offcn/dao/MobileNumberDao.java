@@ -4,5 +4,5 @@ import com.offcn.po.MobileNumber;
 
 public interface MobileNumberDao {
 
-	public MobileNumber getnum(int mobilenumber);
+	public MobileNumber getnum(String mobilenumber);
 }

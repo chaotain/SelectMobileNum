@@ -15,10 +15,13 @@ public class MobileNumberController {
 	@Resource
 	MobileNumberService mobileNumberService;
 	@RequestMapping("/selectnum")
-	public String selectnum(Model model, int mobilenumber){
-		System.out.println(mobilenumber);
+	public String selectnum(Model model, String mobilenumber){
 		MobileNumber mobilenum = mobileNumberService.getnum(mobilenumber);
-		System.out.println(mobilenum.getMobileAreal());
+		if(mobilenum!=null){
+			model.addAttribute("msg", mobilenum.getMobileType()+"---"+mobilenum.getMobileAreal());
+		}else{
+			model.addAttribute("msg", "该号段暂时没有");
+		}
 		model.addAttribute("mobilenum", mobilenum);
 		return "success";
 	}

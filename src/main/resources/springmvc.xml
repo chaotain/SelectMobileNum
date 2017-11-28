@@ -18,6 +18,26 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
  	
+ 	<!-- 用于使用@ResponseBody后返回中文避免乱码 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean id="stringHttpMessageConverter"
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="writeAcceptCharset" value="false" />
+					<!-- 用于避免响应头过大 -->
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/html;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+ 	
+ 	
  	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
  		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
  		<!-- /表示webroot目录下 -->
@@ -58,4 +78,9 @@
  		</mvc:interceptor>
  	</mvc:interceptors> -->
  	
+ 	<!--文件上传解析器 -->
+    <!--Spring MVC默认不能识别multipart格式的文件内容 -->
+    <bean id="multipartResolver"
+        class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+    </bean>
 </beans>

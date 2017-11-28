@@ -56,7 +56,7 @@ public class GetMobileNumber {
 					Object MobileType = list.get(3);
 					Object AreaCode = list.get(4);
 					Object PostCode = list.get(5);
-					mobileNumber.setMobileNumber(Integer.parseInt((String.valueOf(MobileNumber))));
+					mobileNumber.setMobileNumber((String.valueOf(MobileNumber)));
 					mobileNumber.setMobileAreal((String.valueOf(MobileAreal)));
 					mobileNumber.setMobileType((String.valueOf(MobileType)));
 					mobileNumber.setAreaCode(Integer.parseInt((String.valueOf(AreaCode))));
@@ -81,7 +81,7 @@ public class GetMobileNumber {
 	}
 	public static void insert(List<MobileNumber>list){
 		for(MobileNumber num:list){
-			int MobileNumber = num.getMobileNumber();
+			String MobileNumber = num.getMobileNumber();
 			String MobileAreal = num.getMobileAreal();
 			String getMobileType = num.getMobileType();
 			int AreaCode = num.getAreaCode();

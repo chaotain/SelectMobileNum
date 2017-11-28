@@ -1,8 +1,10 @@
 package com.offcn.service;
 
-import com.offcn.po.MobileNumber;
+import javax.jws.WebService;
 
+import com.offcn.po.MobileNumber;
+@WebService
 public interface MobileNumberService {
 
-	public MobileNumber getnum(int mobilenumber);
+	public MobileNumber getnum(String mobilenumber);
 }
